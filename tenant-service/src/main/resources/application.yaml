@@ -1,0 +1,27 @@
+
+app:
+  version: 1.0
+
+server:
+  port: 1011
+
+spring:
+  application:
+    name: tenant-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/undb
+    username: root
+    password: priyanka
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  liquibase:
+    change-log: classpath:db/master.yaml
+    enabled: true
+
+

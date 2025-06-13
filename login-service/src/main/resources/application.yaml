@@ -1,0 +1,33 @@
+app:
+  version: 1.0
+
+server:
+  port: 1013
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: PKCS12
+    key-alias: urbannest
+
+spring:
+  application:
+    name: login-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/undb
+    username: root
+    password: priyanka
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  liquibase:
+    change-log: classpath:db/master.yaml
+    enabled: true
+
+jwt:
+  secret: Z2VuZXJhdGVkLXNlY3JldC1rZXktdG8tdXNlLXdpdGgtSFM1MjY=
+  expiration: 86400000  # 1 day in milliseconds

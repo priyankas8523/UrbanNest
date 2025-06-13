@@ -1,0 +1,36 @@
+app:
+  version: 1.0
+
+server:
+  port: 1012
+
+spring:
+  application:
+    name: property-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/undb
+    username: root
+    password: priyanka
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/test-dev
+          jwk-set-uri: http://localhost:8080/realms/test-dev/protocol/openid-connect/certs
+
+keycloak:
+  realm: test-dev                        # This is the realm where clients and users are created
+  auth-url: http://localhost:8080/       # Base Keycloak URL
+  client-id: auth-client
+  client-secret: xXbAly7Xla6Jveq7GYzaq8ueqwzZUrKC
+  post-logout-redirect-uri: http://localhost:8080
