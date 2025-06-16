@@ -17,7 +17,9 @@ public enum ResponseCode {
     INTERNAL_ERROR,
 
     //Unit
-    UNIT_CREATED
+    UNIT_CREATED,
+    
+    MISSING_VALUES
 
 
 }

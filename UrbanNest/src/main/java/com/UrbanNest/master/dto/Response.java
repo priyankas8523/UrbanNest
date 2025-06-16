@@ -25,6 +25,8 @@ public class Response {
     @JsonDeserialize(as = String.class)
     private Object data;
     
+    private String errorDetails;
+    
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Map<String, String> errors;
     private String path;

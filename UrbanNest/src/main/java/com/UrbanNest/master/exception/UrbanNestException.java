@@ -4,6 +4,8 @@ import com.UrbanNest.master.enums.ResponseCode;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 @Getter
 public class UrbanNestException extends Exception{
 
@@ -22,5 +24,9 @@ public class UrbanNestException extends Exception{
         this.errorCode = code;
         this.fields = fields;
     }
-
+    
+    //@SuppressWarnings("unused")
+    public String[] getMissingFields() {
+        return fields;
+    }
 }

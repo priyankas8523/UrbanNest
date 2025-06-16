@@ -17,6 +17,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.beans.PropertyEditor;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UnitServiceImpl implements UnitService {
@@ -37,6 +39,20 @@ public class UnitServiceImpl implements UnitService {
 
     @Override
     public void addUnit(UnitDto unitDto) throws UrbanNestException {
+        List<String> missingFields = new ArrayList<>();
+        
+        if(unitDto.getUnitNo() == null) missingFields.add("Unit number");
+        if(unitDto.getUnitType() == null) missingFields.add("Unit Type");
+        if(unitDto.getProperty_Id() == null) missingFields.add("Property");
+        
+        if(!missingFields.isEmpty()){
+            throw new UrbanNestException(
+                    ResponseCode.MISSING_VALUES,
+                    "Missing Required feilds!!",
+                    missingFields.toArray(new String[0])
+            );
+        }
+        
         UnitEntity unitEntity = UnitEntity.mapToEntity(unitDto);
         Long propId = unitDto.getProperty_Id();
         unitEntity.setPropertyEntity(propertyRepository.findById(propId)
