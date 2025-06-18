@@ -25,6 +25,11 @@ public class UrbanNestException extends Exception{
         this.fields = fields;
     }
     
+    public UrbanNestException(ResponseCode code, String message){
+        super(message);
+        this.errorCode = code;
+    }
+    
     //@SuppressWarnings("unused")
     public String[] getMissingFields() {
         return fields;

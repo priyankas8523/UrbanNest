@@ -10,13 +10,19 @@ import lombok.experimental.SuperBuilder;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="role")
+@Table(name = "user_role")
 @SuperBuilder
-public class RolesEntity {
-
+public class PersonRoleMappingEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String roleName;
+    private long id;
+    
+    @Column(name = "user_id")
+    private long userId;
+    
+    @Column(name = "role_id")
+    private long roleId;
+    
 }
+

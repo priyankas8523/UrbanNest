@@ -19,7 +19,10 @@ public enum ResponseCode {
     //Unit
     UNIT_CREATED,
     
-    MISSING_VALUES
+    MISSING_VALUES,
+    
+    //user
+    ACCESS_DENIED
 
 
 }

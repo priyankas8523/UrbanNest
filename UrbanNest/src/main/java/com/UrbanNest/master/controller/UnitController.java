@@ -31,14 +31,16 @@ public class UnitController {
         //String unitName =
         return ResponseEntity.ok("Unit deleted successfully!!");
     }
-
+    
     @GetMapping
-    //@PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Page<UnitDto> getAllUnits(
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "10") int pageSize){
-        System.out.println("Inside getallunit "+ Thread.currentThread().getName());
-        unitService.asyncMethodTest();
+        System.out.println("*****************");
+        //System.out.println("Inside getallunit "+ Thread.currentThread().getName());
+        //unitService.asyncMethodTest();
+        //System.out.println(unitService.getAllUnits(page, pageSize).toString());
             return unitService.getAllUnits(page, pageSize);
 
     }

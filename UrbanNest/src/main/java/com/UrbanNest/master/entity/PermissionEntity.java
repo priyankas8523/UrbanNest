@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "permissions")
+@Table(name = "permission")
 @SuperBuilder
 public class PermissionEntity {
     
@@ -24,7 +24,7 @@ public class PermissionEntity {
     
     private String permissionKey;
     
-    private String group;
+    //private String group;
     
 }
 

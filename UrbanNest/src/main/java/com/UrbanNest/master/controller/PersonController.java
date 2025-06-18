@@ -24,8 +24,10 @@ public class PersonController {
     }
 
     //@PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/person")
     public ResponseEntity<String> createPerson(@RequestBody UserPasswordDto userPasswordDto){
         personService.addPerson(userPasswordDto.getPerson(), userPasswordDto.getPassword());
+        System.out.println("cont----------------------------------------------------------------------------------------------------------------------------");
         return ResponseEntity.ok("Person created!");
     }
 

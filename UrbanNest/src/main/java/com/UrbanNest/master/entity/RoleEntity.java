@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "roles")
+@Table(name = "role")
 @SuperBuilder
 public class RoleEntity{
     

@@ -83,7 +83,9 @@ public class IamServiceImpl implements IamService {
         iamUser.setEnabled(true);
 
         Response response =  usersResource.create(iamUser);
-
+        
+        System.out.println(response.getStatus() + " " + response.getStatusInfo());
+        
         if (response.getStatus() != 201) {
             throw new RuntimeException("Failed to create user: " + response.getStatus());
         }
@@ -101,14 +103,7 @@ public class IamServiceImpl implements IamService {
 
         RoleRepresentation role = rolesResource.get(user.getRole().name()).toRepresentation();
         usersResource.get(userId).roles().realmLevel().add(Collections.singletonList(role));
-
-
-//        RoleRepresentation role = rolesResource.get(user.getRole().name()).toRepresentation();
-//        realmResource.users().get(userId).roles().realmLevel().add(Collections.singletonList(role));
-
-//         rolesResource.get(user.getRole().name()).toRepresentation();
-
-
+        System.out.println("IAM----------------------------------------------------------------------------------------------------------------------------");
         return userId;
     }
 
